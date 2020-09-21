@@ -1,10 +1,17 @@
-import React from 'react';
-import styles from './index.less';
+import React, { FC, useEffect } from 'react';
+import { bind } from '@/compents/layout/layout';
 
-export default () => {
+const page: FC<any> = ({ isSmall, stopNess }) => {
+  useEffect(() => {
+    stopNess();
+  }, []);
+
   return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-    </div>
+    <>
+      {isSmall && <p>小票</p>}
+      {!isSmall && <p>大票</p>}
+    </>
   );
-}
+};
+
+export default bind(page);
