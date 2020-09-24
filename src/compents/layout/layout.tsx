@@ -3,10 +3,10 @@ import { BackTop, Divider } from 'antd';
 import { configResponsive, useResponsive } from 'ahooks';
 import NProgress from 'nprogress';
 import { connect } from 'dva';
-import { LargeNav, SmallNav } from '../nav/index';
+import Nav from '../nav/index';
 import './layout.css';
 
-const baseUrl: string = 'https://localhost:5001/';
+const baseUrl: string = 'http://api.sanqii.cn/';
 
 const namespace = 'layout';
 
@@ -31,17 +31,15 @@ const LayoutOrigin: FC<any> = ({ children, layout: { footers }, dispatch }) => {
 
   return (
     <>
-      {/* 这是大屏的nav */}
-      {!isSmall && <LargeNav />}
-      {/* 这是小屏的nav */}
-      {isSmall && <SmallNav />}
+      <Nav isSmall={isSmall} />
+
       {React.Children.map(children, child => {
         return React.cloneElement(child, {
           isSmall,
           stopNess,
         });
       })}
-      =
+
       <div className="layout-footer">
         © {new Date().getFullYear()} 彼岸花网 版权所有.
         <br />
