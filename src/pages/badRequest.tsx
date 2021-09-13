@@ -4,9 +4,9 @@ import { history } from 'umi';
 
 export default () => {
   const props: ResultProps = {
-    status: '404',
-    title: '页面不存在',
-    subTitle: '抱歉，找不到该页面！请检查地址是否输入正确',
+    status: '500',
+    title: '非法的请求参数',
+    subTitle: '抱歉，您键入的 url 有误',
     extra: (
       <Button
         type="primary"

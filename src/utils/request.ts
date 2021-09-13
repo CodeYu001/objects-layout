@@ -1,12 +1,16 @@
-/**
- * request 网络请求工具
- * 更详细的 api 文档: https://github.com/umijs/umi-request
- */
+/** Request 网络请求工具 更详细的 api 文档: https://github.com/umijs/umi-request */
 import { extend } from 'umi-request';
-import { message } from 'antd';
-import { baseUrl } from '@/compents/layout/layout';
+import { notification, message } from 'antd';
+import { history } from 'umi';
 
-const codeMessage: any = {
+const serverEnum: any = {
+  production: 'https://openapi.sanqii.cn',
+  development: 'https://openapi.sanqii.cn',
+};
+
+const server = serverEnum[process.env.NODE_ENV || 'production'];
+
+const codeMessage: { [status: number]: string } = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
   202: '一个请求已经进入后台排队（异步任务）。',
@@ -15,6 +19,7 @@ const codeMessage: any = {
   401: '用户没有权限（令牌、用户名、密码错误）。',
   403: '用户得到授权，但是访问是被禁止的。',
   404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
+  405: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
   406: '请求的格式不可得。',
   410: '请求的资源被永久删除，且不会再得到的。',
   422: '当创建一个对象时，发生一个验证错误。',
@@ -24,45 +29,32 @@ const codeMessage: any = {
   504: '网关超时。',
 };
 
-/**
- * 异常处理程序
- */
+/** 异常处理程序 */
 const errorHandler = (error: { response: Response }): Response => {
   const { response } = error;
   if (response && response.status) {
     const errorText = codeMessage[response.status] || response.statusText;
-
-    message.error(errorText, 5);
+    const { status, url } = response;
+    if (response.status === 400) history.push('/badRequest');
   } else if (!response) {
-    message.error(
-      '无法与服务器取得通信，可能是服务器正在维护，或者您的网络环境糟糕导致的。',
-      5,
-    );
+    notification.error({
+      description: '您的网络发生异常，无法连接服务器',
+      message: '网络异常',
+    });
   }
   return response;
 };
 
-/**
- * 配置request请求时的默认参数
- */
+/** 配置request请求时的默认参数 */
 const request = extend({
   errorHandler, // 默认错误处理
   // credentials: 'include', // 默认请求是否带上cookie
 });
 
-/**
- * request拦截器, 改变url或options
- */
-request.interceptors.request.use((url, options) => {
-  return {
-    url: `${baseUrl}${url}`,
-    options: {
-      ...options,
-      headers: {
-        token: `${localStorage.getItem('token')}`,
-      },
-    },
-  };
-});
+request.interceptors.request.use((url, options) => ({
+  url: server + url,
+  options,
+}));
 
 export default request;
+export { server };

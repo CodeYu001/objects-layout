@@ -6,8 +6,8 @@ export default ({ isSmall }: any) => (
   <PageList
     isSmall={isSmall}
     showNote
-    pageChange={(p: any, searchKey: string) =>
-      history.push('/search/' + searchKey + '/' + p)
+    pageChange={(p: any, searchKey: string, idclassify: number) =>
+      history.push('/classify/' + idclassify + '/' + p)
     }
   />
 );
