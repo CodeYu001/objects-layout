@@ -1,185 +1,184 @@
 body,
 html {
-  background-color: rgb(241, 242, 245);
-  padding-top: 45px;
+	background-color: rgb(241, 242, 245);
+	padding-top: 45px;
+	font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu
 }
 
-
-.layout-top{
-  width: 100%;
-  height: 60px;
-  background-color: #33373d;
-  line-height: 60px;
-  padding: 0 30px;
-  color:rgba(255,255,255,.7);
-  position: fixed;
-  top:0;
-  left: 0;
-  overflow: hidden;
-  z-index: 999;
+.layout-top {
+	width: 100%;
+	height: 60px;
+	background-color: #33373d;
+	line-height: 60px;
+	padding: 0 30px;
+	color: rgba(255,255,255,.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 999;
 }
 
-.layout-top .main{
-  width: 100%; 
-  position: relative;
+.layout-top .main {
+	width: 100%;
+	position: relative;
 }
 
-.layout-top .main .menu{
-  background: #33373d; 
-  height: 60px;
-  line-height: 60px;
-  margin-left: 30px;
+.layout-top .main .menu {
+	background: #33373d;
+	height: 60px;
+	line-height: 60px;
+	margin-left: 30px;
 }
 
-.layout-top p{
-  margin: 0 5px;
-  font-size: 23px;
-  line-height: 0px;
-  font-weight: 350;
-  letter-spacing: .1em;
+.layout-top p {
+	margin: 0 5px;
+	font-size: 23px;
+	line-height: 0px;
+	font-weight: 350;
+	letter-spacing: .1em;
 }
 
-.layout-top .search{
-  width: 200px; 
-  height: 60px; 
-  position: absolute;
-  top: 0;
-  right: 0;
+.layout-top .search {
+	width: 200px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
-.layout-top .search .input{
-  background: rgba(255,255,255,.1); 
-  border: none;
-  color: rgba(255,255,255,.5);
+.layout-top .search .input {
+	background: rgba(255,255,255,.1);
+	border: none;
+	color: rgba(255,255,255,.5);
 }
 
-.layout-top .search .ant-input{
-  background:none;
-  color:rgba(255,255,255,.5);
+.layout-top .search .ant-input {
+	background: none;
+	color: rgba(255,255,255,.5);
 }
 
-.layout-footer{
-  text-align: center;
-  width: 100%;
-  padding: 50px; 
-  color: #999;
-}
-.layout-footer a{
-  color:#999;
+.layout-footer {
+	text-align: center;
+	width: 100%;
+	padding: 50px;
+	color: #999;
 }
 
-.small-body{
-    width: 100%;
-    margin: 0 auto; 
-    position: relative;
+.layout-footer a {
+	color: #999;
 }
 
-.large-body{
-    width: 1000px;
-    margin:0 auto;
-    position: relative;
+.small-body {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
 }
 
-
-.blog-body{
-  width: 100%;
-  margin: 0 auto; 
-  position: relative;
-  overflow: hidden;
+.large-body {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
 }
 
-.blog-body a,.blog-small-body a{
-  color:#444;
+.blog-body {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
 }
 
-.blog-body a:hover{
-  color: #25b864;
+.blog-body a,.blog-small-body a {
+	color: #444;
 }
 
-.title{
-  margin: 0;
-  padding: 0;
-  color: #444;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  margin-bottom: 10px;
+.blog-body a:hover {
+	color: #25b864;
 }
 
-.pre-body{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: #666;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 350;
+.title {
+	margin: 0;
+	padding: 0;
+	font-size: 23px;
+	font-weight: 350;
+	line-height: 32px;
+	margin-bottom: 10px;
+	letter-spacing: 0.07em;
+	
 }
 
-.Image-item{
-  display: block;
-  width: 100%;
-  height: 200px;
-  border-radius: 6px;
-  object-fit: cover;
-  transition: .7s;
-  opacity: 1;
-  cursor: zoom-in;
+.pre-body {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #666;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 350;
 }
 
-
-.Image-item:hover{
-  opacity:.7;
+.Image-item {
+	display: block;
+	width: 100%;
+	height: 200px;
+	border-radius: 6px;
+	object-fit: cover;
+	transition: .7s;
+	opacity: 1;
+	cursor: zoom-in;
 }
 
-.braft-output-content{
-  line-height: 1.2rem;
-  color:rgba(0, 0, 0, 0.7);
+.Image-item:hover {
+	opacity: .7;
 }
 
-.braft-output-content table
-        {
-            border-collapse: collapse;
-            margin: 0 auto;
-            
-            width: 100%;
-            
-        }
+.braft-output-content {
+	line-height: 2rem;
+	color: rgb(110, 110, 115);
+	font-size: 1.05rem;
+	font-weight: 350;
+  letter-spacing: 0.01em;
+}
 
-        @media screen and  (max-width: 960px){ 
-          .braft-output-content  table td, .braft-output-content table th
-          {
-              border: 1px solid #cad9ea;
-              color: #666;
-              height: 30px;
-              padding:5px;
-          }
-        }
+.braft-output-content table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	width: 100%;
+}
 
+@media screen and  (max-width: 960px) {
+ 
+	.braft-output-content  table td, .braft-output-content table th {
+		border: 1px solid #cad9ea;
+		color: #666;
+		height: 30px;
+		padding: 5px;
+	}
+}
 
-        @media screen and (min-width: 960px) { 
-          .braft-output-content  table td, .braft-output-content table th
-          {
-              border: 1px solid #cad9ea;
-              color: #666;
-              height: 30px;
-              padding:22px;
-          }
-        }
-      
-        .braft-output-content table td  a,.braft-output-content table th a{
-          color: #25b864;
-          text-decoration: underline;
-        }
-        .braft-output-content table thead th
-        {
-            background-color: #CCE8EB;
-            width: 100px;
-        }
-        .braft-output-content  table tr:nth-child(odd)
-        {
-            background: #fff;
-        }
-        .braft-output-content  table tr:nth-child(even)
-        {
-            background: #F5FAFA;
-        }
+@media screen and (min-width: 960px) {
+ 
+	.braft-output-content  table td, .braft-output-content table th {
+		border: 1px solid #cad9ea;
+		color: #666;
+		height: 30px;
+		padding: 22px;
+	}
+}
+
+.braft-output-content table td  a,.braft-output-content table th a {
+	color: #25b864;
+	text-decoration: underline;
+}
+
+.braft-output-content table thead th {
+	background-color: #CCE8EB;
+	width: 100px;
+}
+
+.braft-output-content  table tr:nth-child(odd) {
+	background: #fff;
+}
+
+.braft-output-content  table tr:nth-child(even) {
+	background: #F5FAFA;
+}

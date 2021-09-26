@@ -9,8 +9,6 @@ import 'braft-editor/dist/index.css';
 import 'braft-editor/dist/output.css';
 import './main.css';
 
-const namespace = 'layout';
-
 configResponsive({ small: 0, middle: 960, large: 1200 });
 
 const LayoutOrigin: FC<any> = ({ children }) => {

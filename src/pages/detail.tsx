@@ -49,7 +49,7 @@ const page: FC<pageProps> = ({
     false,
     isSmall,
   )(
-    <Skeleton active loading={loadings[fecthStr]} paragraph={{ rows: 9 }}>
+    <Skeleton active loading={loadings[fecthStr]} paragraph={{ rows: 30 }}>
       {detail.code === -1 && <Result {...props} title={detail.message} />}
 
       {detail.code === 0 && (
@@ -64,22 +64,26 @@ const page: FC<pageProps> = ({
           </Space>
           {myUtils.getTags(
             detail.data.tags,
-            detail.data.annexJson && (
-              <Tag color="#108ee9" icon={<LinkOutlined />}>
-                有附件
-              </Tag>
-            ),
+            <div>
+              {detail.data.annexJson && (
+                <Tag color="#108ee9" icon={<LinkOutlined />}>
+                  有附件
+                </Tag>
+              )}
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: 'rgba(0,0,0,.45)',
+                  marginRight: 10,
+                }}
+              >
+                {myUtils.getDateTime(detail.data.publishTime)}
+                <Divider type="vertical" />
+                阅读 {detail.data.visits}
+              </div>
+            </div>,
           )}
-          <div
-            style={{
-              fontSize: '12px',
-              color: 'rgba(0,0,0,.45)',
-              marginTop: 10,
-            }}
-          >
-            于 {myUtils.getDateTime(detail.data.publishTime)} 发布
-            <Divider type="vertical" /> 已被阅读 {detail.data.visits} 次
-          </div>
+
           <RenderDatas
             data={{ urls: detail.data, type: detail.type }}
             isSmall={isSmall}
